@@ -1,10 +1,26 @@
+require('dotenv').config()
 const express = require ('express')
 const sequelize = require ('./db')
-require('dotenv').config()
+const cors = require ('cors')
+const models = require ('./models/models.js')
+const router = require('./routes/index')
+const errorHandler = require ('./middleware/ErrorHandlingMiddleware.js')
+
 
 const PORT = process.env.PORT || 5000
 
 const app = express()
+app.use(cors())
+app.use(express.json())
+
+// app.get('/', (req, res) => {
+//     res.status(200).json({message: "Ok message!"})    
+// })
+
+app.use('/api', router)
+
+// обработка ошибок последний middleware
+app.use(errorHandler)
 
 const start = async () => {
     try {
