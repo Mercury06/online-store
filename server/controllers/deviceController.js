@@ -28,8 +28,7 @@ class DeviceController {
             return res.json(device)
         } catch (e) {
             next(ApiError.badRequest(e.message))
-        }
-        
+        }        
 
     }
 
@@ -42,13 +41,13 @@ class DeviceController {
         if (!brandId && !typeId) {
             devices = await Device.findAndCountAll({limit, offset})
         }
-        if (!brandId && !typeId) {
+        if (brandId && !typeId) {
             devices = await Device.findAndCountAll({where: {brandId}, limit, offset})
         }
-        if (!brandId && !typeId) {
+        if (!brandId && typeId) {
             devices = await Device.findAndCountAll({where: {typeId}, limit, offset})
         }
-        if (!brandId && !typeId) {
+        if (brandId && typeId) {
             devices = await Device.findAndCountAll({where: {brandId, typeId}, limit, offset})
         }
         return res.json(devices)
@@ -60,7 +59,7 @@ class DeviceController {
             {
                 where: {id},
                 include: [{model: DeviceInfo, as: 'info'}]
-            }
+            },
         )
         return res.json(device)
     }

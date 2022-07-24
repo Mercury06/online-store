@@ -17,14 +17,14 @@ app.use(express.json())
 app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(fileUpload({}))
 
-app.get('/', (req, res) => {
-    res.status(200).json({message: "Ok message!"})    
-})
-
 app.use('/api', router)
 
 // обработка ошибок последний middleware
 app.use(errorHandler)
+
+app.get('/', (req, res) => {
+    res.status(200).json({message: "Ok message!"})    
+})
 
 const start = async () => {
     try {
