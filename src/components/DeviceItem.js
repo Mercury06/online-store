@@ -1,12 +1,12 @@
 import React from 'react';
 import {Card, Col} from "react-bootstrap";
 import Image from "react-bootstrap/Image";
-import star from '../assets/star.png'
-import {useHistory} from "react-router-dom"
-import {DEVICE_ROUTE} from "../utils/consts";
+//import star from '../assets/star.png'
+import {useNavigate} from "react-router-dom"
+import {DEVICE_ROUTE} from "../utils/const";
 
 const DeviceItem = ({device}) => {
-    const history = useHistory()
+    const history = useNavigate()
     return (
         <Col md={3} className={"mt-3"} onClick={() => history.push(DEVICE_ROUTE + '/' + device.id)}>
             <Card style={{width: 150, cursor: 'pointer'}} border={"light"}>
@@ -15,7 +15,7 @@ const DeviceItem = ({device}) => {
                     <div>Samsung...</div>
                     <div className="d-flex align-items-center">
                         <div>{device.rating}</div>
-                        <Image width={18} height={18} src={star}/>
+                        {/* <Image width={18} height={18} src={}/> */}
                     </div>
                 </div>
                 <div>{device.name}</div>

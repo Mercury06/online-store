@@ -1,49 +1,23 @@
-import { makeAutoObservable } from "mobx";
+import {makeAutoObservable} from "mobx";
 
-export default class DeviceStore {
-
+export default class UserStore {
     constructor() {
-        this._types = [
-            {id: 1, name: "Холодильники"},
-            {id: 2, name: "Смартфоны"}
-        ]
-        this._brands = [
-            {id: 1, name: "Samsung"},
-            {id: 2, name: "Apple"}
-        ]
-        this._devices = [
-            {id: 1, name: "apple1" },
-            {id: 2, name: "apple2" },
-            {id: 3, name: "apple3" },
-            {id: 4, name: "apple4" }
-        ]
+        this._isAuth = false
+        this._user = {}
         makeAutoObservable(this)
     }
 
-    setTypes(types) {
-        this._types = types
+    setIsAuth(bool) {
+        this._isAuth = bool
+    }
+    setUser(user) {
+        this._user = user
     }
 
-    setBrands(brands) {
-        this._brands = brands
+    get isAuth() {
+        return this._isAuth
     }
-
-    setDevices(devices) {
-        this._devices = devices
+    get user() {
+        return this._user
     }
-
-    get Types() {
-        return this._types
-    }
-
-    get Brands() {
-        return this._brands
-    }
-
-    get Devices() {
-        return this._devices
-    }
-
-
-
 }

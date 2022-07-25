@@ -5,29 +5,41 @@ import NavBar from "./components/NavBar";
 import {observer} from "mobx-react-lite";
 import {Context} from "./index";
 import {check} from "./http/userAPI";
-import {Spinner} from "react-bootstrap";
+import Navbar2 from './components/NavBar2';
+import Navbar from './components/NavBar';
+//import {Spinner} from "react-bootstrap";
 
-const App = observer(() => {
-    const {user} = useContext(Context)
-    const [loading, setLoading] = useState(true)
+// const App = observer(() => {
+//     const {user} = useContext(Context)
+//     const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        check().then(data => {
-            user.setUser(true)
-            user.setIsAuth(true)
-        }).finally(() => setLoading(false))
-    }, [])
+//     useEffect(() => {
+//         check().then(data => {
+//             user.setUser(true)
+//             user.setIsAuth(true)
+//         }).finally(() => setLoading(false))
+//     }, [])
 
-    if (loading) {
-        return <Spinner animation={"grow"}/>
-    }
+//     // if (loading) {
+//     //     return <Spinner animation={"grow"}/>
+//     // }
 
-    return (
-        <BrowserRouter>
-            <NavBar />
-            <AppRouter />
-        </BrowserRouter>
-    );
-});
+//     return (
+//         <BrowserRouter>
+//             <NavBar />
+//             <AppRouter />
+//         </BrowserRouter>
+//     );
+// });
+
+const App = () => {
+  return (
+            <BrowserRouter>
+              <Navbar2 />
+              <Navbar />
+              <AppRouter />
+            </BrowserRouter>
+        );
+}
 
 export default App;
