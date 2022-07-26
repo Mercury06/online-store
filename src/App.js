@@ -6,7 +6,7 @@ import {observer} from "mobx-react-lite";
 import {Context} from "./index";
 import {check} from "./http/userAPI";
 import Navbar2 from './components/NavBar2';
-import Navbar from './components/NavBar';
+
 //import {Spinner} from "react-bootstrap";
 
 // const App = observer(() => {
@@ -35,8 +35,9 @@ import Navbar from './components/NavBar';
 const App = () => {
   return (
             <BrowserRouter>
+             
+              {/* <NavBar /> */}
               <Navbar2 />
-              <Navbar />
               <AppRouter />
             </BrowserRouter>
         );
