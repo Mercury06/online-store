@@ -36,8 +36,8 @@ const App = () => {
   return (
             <BrowserRouter>
              
-              {/* <NavBar /> */}
-              <Navbar2 />
+              <NavBar />
+              {/* <Navbar2 /> */}
               <AppRouter />
             </BrowserRouter>
         );

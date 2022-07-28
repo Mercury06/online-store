@@ -14,9 +14,7 @@ root.render(
     device: new DeviceStore()
   }}>
      <App />
-  </Context.Provider>
-   
+  </Context.Provider> 
   
 );
-
 
